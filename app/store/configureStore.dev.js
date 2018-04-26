@@ -3,6 +3,8 @@ import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import storage from '../utils/storage';
 
+import { fetchData} from '../actions/twitch';
+
 // If Redux DevTools Extension is installed use it, otherwise use Redux compose
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -19,6 +21,10 @@ const enhancer = composeEnhancers(
 
 export default function (initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
+
+  store.dispatch(fetchData());
+
+
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

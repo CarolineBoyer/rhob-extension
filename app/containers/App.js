@@ -1,34 +1,41 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
-import * as TodoActions from '../actions/todos';
+import * as TwitchActions from '../actions/twitch';
 import style from './App.css';
 
 @connect(
   state => ({
-    todos: state.todos
+    twitchData : state.twitch
   }),
   dispatch => ({
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(TwitchActions, dispatch)
   })
 )
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-  static propTypes = {
-    todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
-  };
+    componentDidMount() {
+        //setInterval( function() { console.log(this.props); this.props.actions.fetchData(); }.bind(this) , 5000);
+    }
 
-  render() {
-    const { todos, actions } = this.props;
 
-    return (
-      <div className={style.normal}>
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                {!this.props.twitchData.isFetching ?
+                    <div>
+                        <Header {...this.props}/>
+                        <MainSection {...this.props}/>
+                    </div>
+                :   <div className={style.loadingContainer}>Loading...</div>
+                }
+            </div>
+        );
+    }
 }

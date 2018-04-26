@@ -6,14 +6,15 @@ const customPath = path.join(__dirname, './customPublicPath');
 
 module.exports = {
   entry: {
-    todoapp: [customPath, path.join(__dirname, '../chrome/extension/todoapp')],
+    rhobapp: [customPath, path.join(__dirname, '../chrome/extension/rhobapp')],
     background: [customPath, path.join(__dirname, '../chrome/extension/background')],
     inject: [customPath, path.join(__dirname, '../chrome/extension/inject')]
   },
   output: {
-    path: path.join(__dirname, '../build/js'),
-    filename: '[name].bundle.js',
-    chunkFilename: '[id].chunk.js'
+    path: path.join(__dirname, '../build'),
+    filename: './js/[name].bundle.js',
+    chunkFilename: './js/[id].chunk.js',
+    publicPath: '/'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -53,6 +54,14 @@ module.exports = {
           }
         }
       ]
-    }]
+  },{
+      test: /\.(png|jp(e*)g|svg)$/,
+      use: [{
+          loader: 'url-loader',
+          options: {
+              limit: 8000, // Convert images < 8kb to base64 strings
+          }
+      }]
+  }]
   }
 };

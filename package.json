@@ -1,7 +1,7 @@
 {
-  "name": "react-chrome-extension-boilerplate",
-  "version": "0.9.0",
-  "description": "Boilerplate for Chrome extension React.js project",
+  "name": "rhob-extension",
+  "version": "0.0.1",
+  "description": "Rhobalas LiveStream Chrome Extension",
   "scripts": {
     "dev": "node scripts/dev",
     "build": "node scripts/build",
@@ -14,10 +14,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhen0409/react-chrome-extension-boilerplate.git"
+    "url": "https://github.com/CarolineBoyer/rhob-extension.git"
   },
-  "keywords": ["chrome", "extension", "react", "redux", "hot reload", "webpack", "boilerplate"],
-  "author": "Jhen <developer@jhen.me>",
+  "keywords": [
+    "esport",
+    "stream",
+    "chrome",
+    "extension",
+    "react",
+    "redux"
+  ],
+  "author": "CarolineBoyer",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.3.15",
@@ -43,17 +50,21 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.5.0",
+    "file-loader": "^1.1.11",
     "jsdom": "^9.2.1",
     "minimist": "^1.2.0",
     "mocha": "^3.1.2",
     "postcss-loader": "^1.2.1",
     "pug-cli": "^1.0.0-alpha6",
     "react-addons-test-utils": "^15.0.2",
+    "redux-thunk": "^2.2.0",
     "rimraf": "^2.4.3",
     "selenium-webdriver": "^2.47.0",
     "shelljs": "^0.7.0",
     "sinon": "^1.17.1",
     "style-loader": "^0.13.1",
+    "superagent": "^3.8.2",
+    "url-loader": "^1.0.1",
     "webpack": "^3.10.0",
     "webpack-hot-middleware": "^2.10.0",
     "webpack-httpolyglot-server": "^0.3.0"
@@ -66,7 +77,6 @@
     "react-dock": "^0.2.3",
     "react-dom": "^15.0.2",
     "react-redux": "^4.3.0",
-    "redux": "^3.2.1",
-    "redux-thunk": "^2.0.1"
+    "redux": "^3.2.1"
   }
 }
