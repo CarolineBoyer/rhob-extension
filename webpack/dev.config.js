@@ -8,6 +8,7 @@ const customPath = path.join(__dirname, './customPublicPath');
 const hotScript = 'webpack-hot-middleware/client?path=__webpack_hmr&dynamicPublicPath=true';
 
 const baseDevConfig = () => ({
+    mode: 'development',
     devtool: 'eval-cheap-module-source-map',
     entry: {
         rhobapp: [customPath, hotScript, path.join(__dirname, '../chrome/extension/rhobapp')],
@@ -32,7 +33,7 @@ const baseDevConfig = () => ({
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
+        // new webpack.NoEmitOnErrorsPlugin(),
         new webpack.IgnorePlugin(/[^/]+\/[\S]+.prod$/),
         new webpack.DefinePlugin({
             __HOST__: `'${host}'`,
@@ -42,6 +43,9 @@ const baseDevConfig = () => ({
             }
         })
     ],
+    optimization: {
+        noEmitOnErrors: true, 
+    },
     resolve: {
         extensions: ['*', '.js']
     },
