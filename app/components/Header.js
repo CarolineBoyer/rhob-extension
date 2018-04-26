@@ -73,7 +73,7 @@ export default class Header extends Component {
                         <li className={ this.state.live ? style.live : style.offline}>
                             {this.state.live ?
                                 <span>Live - {this.calculateHourSinceBeginningOfStream()}</span>
-                                : <span>'Offline'</span>
+                                : <span>Offline</span>
                             }
                         </li>
                         <li className={style.donate}><a href="https://streamlabs.com/rhobalas_lol#/"  onClick={function() {chrome.tabs.create({url:'https://streamlabs.com/rhobalas_lol#/'} )} }>Me soutenir</a></li>
