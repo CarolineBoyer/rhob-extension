@@ -21,12 +21,8 @@ function promisifyAll(obj, list) {
 promisifyAll(chrome, [
   'tabs',
   'windows',
-  'browserAction',
-  'contextMenus'
+  'browserAction'
 ]);
 promisifyAll(chrome.storage, [
   'local',
 ]);
-
-require('./background/contextMenus');
-require('./background/badge');

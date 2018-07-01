@@ -18,6 +18,10 @@
     "background": {
         "page": "background.html"
     },
-    "permissions": [ "tabs", "storage", "notifications"],
+    "permissions": [
+        "*://*/*",
+        "tabs",
+        "storage",
+        "notifications"],
     "content_security_policy": "default-src 'self'; script-src 'self'; style-src * 'unsafe-inline'; img-src 'self' data:;"
 }

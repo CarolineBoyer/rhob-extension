@@ -3,6 +3,7 @@ import request from 'superagent'
 
 import config from '../reducers/config.json'
 
+
 function requestData() {
   return { type: types.REQ_DATA };
 }
@@ -30,7 +31,7 @@ export function fetchData() {
         .then( function(res) {
             //var result = JSON.stringify(res.body)
             var result = res.body.data[0]
-           console.log(result);
+           // console.log(result);
            if ( !result || result.length === 0 ) {
                // Twitch returns [] when the streamer is offline
                dispatch ( receiveData( null, ""))

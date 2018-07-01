@@ -5,7 +5,7 @@
     "description": "Ne ratez plus un stream de votre maitre des tentacules préféré !",
     "browser_action": {
         "default_title": "Rhobalas LiveStream",
-        "default_popup": "popup.html"
+        "default_popup": "window.html"
     },
     "icons": {
         "16": "img/icon-28.png",
@@ -16,8 +16,15 @@
         "inject.html"
     ],
     "background": {
-        "page": "background.html"
+        "page": "background.html",
+        "persistent":true
     },
-    "permissions": [ "notifications", "tabs", "storage", "https://*.twitch.tv/" ],
+    "permissions": [
+        "https://*/*",
+        "http://*/*",
+        "notifications",
+        "tabs",
+        "storage",
+        "https://*.twitch.tv/" ],
     "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; connect-src https://api.twitch.tv http://localhost:3000 https://localhost:3000; style-src * 'unsafe-inline' 'self' blob:; img-src 'self' data:;"
 }

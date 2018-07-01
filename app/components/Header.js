@@ -18,11 +18,11 @@ export default class Header extends Component {
     }
 
     componentDidMount() {
-        console.log("mounted");
+        // console.log("mounted");
         document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
     }
     componentWillUnmount() {
-        console.log("unmounting");
+        // console.log("unmounting");
        document.removeEventListener('mousemove', (e) => this.handleMouseMove(e));
     }
 
